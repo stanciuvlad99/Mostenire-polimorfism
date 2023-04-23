@@ -1,10 +1,24 @@
+import controllers.ControlVehicul;
+import models.Avion;
+import models.Barca;
 import models.Masina;
+import models.Vehicul;
+
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
 
-        Masina masina = new Masina("Ford", "albastru", 2016, "Mondeo", 200,
-                2000);
-        System.out.println(masina.descriere());
+
+
+        ControlVehicul controlVehicul = new ControlVehicul();
+        controlVehicul.add(new Avion( "qwerty",999,"qwerty", "qwerty",999));
+        controlVehicul.add(new Barca( "qwerty", 999, "qwerty", 999,999));
+        controlVehicul.add(new Masina( "qwerty", 999, "qwerty", 999, 999));
+        controlVehicul.save();
+
+//        controlVehicul.afisare();
+
+
     }
 }

@@ -1,0 +1,9 @@
+avion,mov,2009,AirBus,150,Bucuresti
+avion,albastru,2010,Tarom,200,Timisoara
+avion,rosu,2012,Embrarer,170,Bucuresti
+barca,alb,2022,Intex,3,200
+barca,negru,2021,Intex,4,400
+barca,rosu,2023,Intex,5,600
+masina,gri,2020,Audi,300,3000
+masina,verde,2019,BMW,400,3000
+masina,galben,2018,Mercedes,200,2000

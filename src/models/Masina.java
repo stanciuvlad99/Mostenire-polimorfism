@@ -7,8 +7,8 @@ public class Masina extends Vehicul {
     private int caiPutere;
     private int capacitateCilndrica;
 
-    public Masina(String marca, String culoare, int an, String model, int caiPutere, int capacitateCilindrica) {
-        super(marca,culoare,an);
+    public Masina(String culoare, int an, String model, int caiPutere, int capacitateCilindrica) {
+        super("masina",culoare,an);
         System.out.println("Eu sunt constructorul cu toti paramaetrii ai lui masina");
         this.model = model;
         this.caiPutere = caiPutere;
@@ -17,6 +17,14 @@ public class Masina extends Vehicul {
 //        super.setAn(an);
 //        super.setMarca(marca);
 //        super.setCuloare(culoare);
+    }
+
+    public Masina(String proprietati){
+        super(proprietati);
+        String []split=proprietati.split(",");
+        this.model=split[3];
+        this.caiPutere=Integer.parseInt(split[4]);
+        this.capacitateCilndrica=Integer.parseInt(split[5]);
     }
 
     public void setModel(String model) {
@@ -43,19 +51,27 @@ public class Masina extends Vehicul {
         return capacitateCilndrica;
     }
 
+
+    @Override
     public String descriere() {
 
         String text = "";
 
-        text += super.decriere() + "\n";
+        text += "\n";
 
+        text += "tip vehicul " + super.getTipVehicul() + "\n";
+        text += "culoare " + super.getCuloare() + "\n";
+        text += "an " + super.getAn()+"\n";
         text += "model " + model + "\n";
         text += "cai putere " + caiPutere + "\n";
         text += "capacitate cilindrica " + capacitateCilndrica + "\n";
-        text += "marca " + super.getMarca() + "\n";
-        text += "culoare " + super.getCuloare() + "\n";
-        text += "an " + super.getAn();
+
         return text;
+    }
+
+    public String toSave(){
+        return super.getTipVehicul()+","+super.getCuloare()+","+super.getAn()+","+model + ","+caiPutere+","
+                +capacitateCilndrica;
     }
 
 

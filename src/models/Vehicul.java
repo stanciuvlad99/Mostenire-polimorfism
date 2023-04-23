@@ -2,9 +2,11 @@ package models;
 
 public class Vehicul {
 
-    private String marca;
+    private String tipVehicul;
     private String culoare;
     private int an;
+
+    private String type;
 
 
 //    public Vehicul() {
@@ -12,17 +14,19 @@ public class Vehicul {
 //    }
 
 
-    public Vehicul(String marca, String culoare, int an) {
-        System.out.println("Eu sunt constructorul cu 3 parametri");
-        this.marca = marca;
+    public Vehicul(String tipVehicul, String culoare, int an) {
+//        System.out.println("Eu sunt constructorul cu 3 parametri");
+        this.tipVehicul = tipVehicul;
         this.culoare = culoare;
         this.an = an;
     }
 
-    //todo:un contructor cu 1 parametru si unul cu 2
-    public Vehicul(String marca){
-        System.out.println("Eu sunt constructorul cu un parametru");
-        this.marca=marca;
+    public Vehicul(String proprietati) {
+        String []splt=proprietati.split(",");
+        this.tipVehicul =splt[0];
+        this.culoare=splt[1];
+        this.an=Integer.parseInt(splt[2]);
+
     }
 
     public Vehicul(String culoare, int an){
@@ -31,12 +35,21 @@ public class Vehicul {
         this.an=an;
     }
 
-    public void setMarca(String marca) {
-        this.marca = marca;
+    public void setTipVehicul(String tipVehicul) {
+        this.tipVehicul = tipVehicul;
     }
 
-    public String getMarca() {
-        return marca;
+    public String getTipVehicul() {
+        return tipVehicul;
+    }
+
+
+    public void setType(String type){
+        this.type=type;
+    }
+
+    public String getType(){
+        return type;
     }
 
     public void setCuloare(String culoare) {
@@ -56,9 +69,18 @@ public class Vehicul {
     }
     //descriere
 
-    public String decriere() {
-        String descriere = "Marcam masinii este " + marca + ", culoarea este " + culoare +
-                ", iar anul de fabricare este " + an;
+
+    public String descriere() {
+        String descriere="";
+        descriere+="tip vehicul " + tipVehicul + "\n";
+        descriere+="culoare " + culoare + "\n";
+        descriere+="an " + an + "\n";
         return descriere;
     }
+    public String toSave(){
+        return tipVehicul + "," + culoare + ","+ an;
+    }
+
+
+
 }
